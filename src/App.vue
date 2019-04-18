@@ -2,7 +2,7 @@
   <div id="app">
     <!-- v-bind is a vue directive -->
     <Header/>
-    <AddTruck/>
+    <AddTruck v-on:add-truck="addTruck"/>
     <Trucks v-bind:trucks="trucks" v-on:del-truck="deleteTruck"/>
   </div>
 </template>
@@ -11,6 +11,7 @@
 import Header from "./components/layout/Header";
 import Trucks from "./components/Trucks";
 import AddTruck from "./components/AddTruck";
+import axios from "axios";
 
 export default {
   name: "app",
@@ -22,32 +23,22 @@ export default {
   // Data is a function that returns an object
   data() {
     return {
-      trucks: [
-        {
-          id: 1,
-          title: "All Star Cafe",
-          twitterUrl: "https://twitter.com/ASCafeMobile/",
-          active: true
-        },
-        {
-          id: 2,
-          title: "The Dumpling Lady",
-          twitterUrl: "https://twitter.com/DumplingLadyCLT",
-          active: true
-        },
-        {
-          id: 3,
-          title: "Hiya Food Truck",
-          twitterUrl: "https://twitter.com/hiyafoodtruck",
-          active: true
-        }
-      ]
+      trucks: []
     };
   },
   methods: {
     deleteTruck(id) {
       this.trucks = this.trucks.filter(truck => truck.id !== id);
+    },
+    addTruck(newTruck) {
+      this.trucks = [...this.trucks, newTruck];
     }
+  },
+  created() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then(res => (this.trucks = res.data))
+      .catch(err => console.log(err));
   }
 };
 </script>

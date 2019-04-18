@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- @submit calling the addTruck method-->
     <form @submit="addTruck">
       <input type="text" v-model="title" name="title" placeholder="Add a Food Truck">
       <input type="submit" value="Submit" class="btn">
@@ -8,12 +9,31 @@
 </template>
 
 <script>
+import uuid from "uuid";
+
 export default {
   name: "AddTruck",
   data() {
     return {
       title: ""
     };
+  },
+  methods: {
+    // As we add a truck, it will always be listed
+    // inactive. uuid is a npm package that generates
+    // a unique id - we will refactor once Cassandra/DSE
+    // is implemented.
+    addTruck(e) {
+      e.preventDefault();
+      const newTruck = {
+        id: uuid.v4(),
+        title: this.title,
+        active: false
+      };
+      // send up to parent
+      this.$emit("add-truck", newTruck);
+      this.title = "";
+    }
   }
 };
 </script>
