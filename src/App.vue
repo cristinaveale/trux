@@ -38,7 +38,7 @@ export default {
     axios
       .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
       .then(res => (this.trucks = res.data))
-      .catch(err => console.log(err));
+      .catch(err => console.log("ERROR:", err));
   }
 };
 </script>

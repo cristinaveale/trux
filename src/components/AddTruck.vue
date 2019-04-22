@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import uuid from "uuid";
-
 export default {
   name: "AddTruck",
   data() {
@@ -26,7 +24,6 @@ export default {
     addTruck(e) {
       e.preventDefault();
       const newTruck = {
-        id: uuid.v4(),
         title: this.title,
         active: false
       };
