@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <Header/>
+    <Toolbar/>
     <GoogleMap/>
     <!-- <AddTruck v-on:add-truck="addTruck"/>
     <Trucks v-bind:trucks="trucks" v-on:del-truck="deleteTruck"/>-->
@@ -10,7 +10,7 @@
 <script>
 import axios from "axios";
 
-import Header from "./components/layout/Header";
+import Toolbar from "./components/layout/Toolbar";
 import GoogleMap from "./components/GoogleMap";
 import Trucks from "./components/Trucks";
 import AddTruck from "./components/AddTruck";
@@ -18,7 +18,7 @@ import AddTruck from "./components/AddTruck";
 export default {
   name: "app",
   components: {
-    Header,
+    Toolbar,
     Trucks,
     AddTruck,
     GoogleMap

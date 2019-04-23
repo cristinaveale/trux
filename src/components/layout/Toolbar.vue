@@ -1,5 +1,11 @@
 <template>
-  <v-toolbar>
+  <v-toolbar
+    absolute
+    color="teal lighten-3"
+    dark
+    scroll-off-screen
+    scroll-target="#scrolling-techniques"
+  >
     <v-toolbar-side-icon></v-toolbar-side-icon>
     <v-toolbar-title>Trux</v-toolbar-title>
     <v-spacer></v-spacer>
@@ -13,15 +19,9 @@
 
 <script>
 export default {
-  name: "header"
+  name: "toolbar"
 };
 </script>
 
 <style scoped>
-.header {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-}
 </style>
