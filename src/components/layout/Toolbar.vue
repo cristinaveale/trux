@@ -1,19 +1,33 @@
 <template>
-  <v-toolbar
-    absolute
-    color="teal lighten-3"
-    dark
-    scroll-off-screen
-    scroll-target="#scrolling-techniques"
-  >
+  <v-toolbar absolute color="teal lighten-3" dark>
     <v-toolbar-side-icon></v-toolbar-side-icon>
+
     <v-toolbar-title>Trux</v-toolbar-title>
+
     <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Link One</v-btn>
-      <v-btn flat>Link Two</v-btn>
-      <v-btn flat>Link Three</v-btn>
-    </v-toolbar-items>
+
+    <v-text-field
+      hide-details
+      prepend-icon="search"
+      single-line
+      placeholder="Search for your favorite food truck"
+    ></v-text-field>
+
+    <v-btn icon>
+      <v-icon>my_location</v-icon>
+    </v-btn>
+
+    <v-btn icon>
+      <v-icon>more_vert</v-icon>
+    </v-btn>
+
+    <v-btn icon>
+      <v-icon>favorite</v-icon>
+    </v-btn>
+
+    <v-btn icon>
+      <v-icon>more_vert</v-icon>
+    </v-btn>
   </v-toolbar>
 </template>
 
