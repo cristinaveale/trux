@@ -1,24 +1,27 @@
 <template>
-  <div id="app">
-    <!-- v-bind is a vue directive -->
+  <v-app id="app">
     <Header/>
-    <AddTruck v-on:add-truck="addTruck"/>
-    <Trucks v-bind:trucks="trucks" v-on:del-truck="deleteTruck"/>
-  </div>
+    <GoogleMap/>
+    <!-- <AddTruck v-on:add-truck="addTruck"/>
+    <Trucks v-bind:trucks="trucks" v-on:del-truck="deleteTruck"/>-->
+  </v-app>
 </template>
 
 <script>
+import axios from "axios";
+
 import Header from "./components/layout/Header";
+import GoogleMap from "./components/GoogleMap";
 import Trucks from "./components/Trucks";
 import AddTruck from "./components/AddTruck";
-import axios from "axios";
 
 export default {
   name: "app",
   components: {
     Header,
     Trucks,
-    AddTruck
+    AddTruck,
+    GoogleMap
   },
   // Data is a function that returns an object
   data() {
