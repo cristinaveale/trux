@@ -4,7 +4,6 @@
 
 <script>
 import MarkerClusterer from "@google/markerclusterer";
-
 import gmapsInit from "../utils/gmaps";
 
 export default {
@@ -19,36 +18,32 @@ export default {
       const locations = [
         {
           position: {
-            lat: 35.226433,
-            lng: -80.84285
+            lat: 47.65082,
+            lng: -122.37643
           }
         },
         {
           position: {
-            lat: 35.216108,
-            lng: -80.82211
+            lat: 47.60046,
+            lng: -122.33247
           }
         },
         {
           position: {
-            lat: 35.283011,
-            lng: -80.900585
+            lat: 47.61966,
+            lng: -122.3385
           }
         }
       ];
 
-      // Applying this map to Charlotte, NC
-      geocoder.geocode(
-        { address: "Charlotte, North Carolina" },
-        (results, status) => {
-          if (status !== "OK" || !results[0]) {
-            throw new Error(status);
-          }
-
-          map.setCenter(results[0].geometry.location);
-          map.fitBounds(results[0].geometry.viewport);
+      // Applying this map to Seattle, WA
+      geocoder.geocode({ address: "Seattle, WA" }, (results, status) => {
+        if (status !== "OK" || !results[0]) {
+          throw new Error(status);
         }
-      );
+        map.setCenter(results[0].geometry.location);
+        map.fitBounds(results[0].geometry.viewport);
+      });
 
       // When cluster is clicked, map will zoom in to cluster position
       const markers = locations.map(location => {
@@ -79,6 +74,6 @@ export default {
 <style>
 .g-map {
   width: 100vw;
-  height: 100vh;
+  height: 500px;
 }
 </style>

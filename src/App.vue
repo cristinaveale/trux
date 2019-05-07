@@ -2,8 +2,8 @@
   <v-app id="app">
     <Toolbar/>
     <GoogleMap/>
-    <!-- <AddTruck v-on:add-truck="addTruck"/>
-    <Trucks v-bind:trucks="trucks" v-on:del-truck="deleteTruck"/>-->
+    <AddTruck v-on:add-truck="addTruck"/>
+    <Trucks v-bind:trucks="trucks" v-on:del-truck="deleteTruck"/>
   </v-app>
 </template>
 
@@ -39,7 +39,7 @@ export default {
   },
   created() {
     axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .get("https://jsonplaceholder.typicode.com/users?_limit=10")
       .then(res => (this.trucks = res.data))
       .catch(err => console.log("ERROR:", err));
   }

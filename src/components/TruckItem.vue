@@ -2,7 +2,7 @@
   <div class="truck-item" v-bind:class="{'not-active':!truck.active}">
     <p>
       <input type="checkbox" v-on:change="markInactive">
-      {{truck.title}}
+      {{truck.company.bs}}
     </p>
     <button class="del" @click="$emit('del-truck',truck.id)">Delete</button>
   </div>

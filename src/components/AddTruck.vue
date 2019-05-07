@@ -18,9 +18,7 @@ export default {
   },
   methods: {
     // As we add a truck, it will always be listed
-    // inactive. uuid is a npm package that generates
-    // a unique id - we will refactor once Cassandra/DSE
-    // is implemented.
+    // inactive.
     addTruck(e) {
       e.preventDefault();
       const newTruck = {
